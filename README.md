@@ -54,6 +54,8 @@
 
 
 
+![flow](flow.png)
+
 
 
 
@@ -69,6 +71,13 @@
 - Step 7: Use the model for testing
 - Step 6 (again): Deploy the model for the web app
 - Step 7 (again): Use the model for the web app
+
+
+
+
+![connections](connections.png)
+
+
 
 
 
