@@ -1,22 +1,67 @@
 # Deployed_Sentiment_Analysis_Model
-Used BeautifulSoup to remove any HTML formatting that may have appeared.
-Used NLTK to stem the words.
+
+ In this project, I used SageMaker to construct a complete project from end to end. The goal of this project is to make A simple web app which interacts with a deployed recurrent neural network performing sentiment analysis on movie reviews.
+ The web page will then send the review off to my deployed model which will predict the sentiment of the entered review.
+ 
+ Trained and deployed on AWS cloud.
+ 
+
+
+1. Used BeautifulSoup to remove any HTML formatting that may have appeared.
+
+2. Used NLTK to stem the words.
+
+3. Used AWS Lambda function for tokenization & conversion of review to suitable type.
+
+4. Used API Gateway to create endpoint & to forward the data to lambda function.
+
+5. Used AWS SageMaker for creating Notebook Instances, Training jobs, Endpoints, Models & Batch Transform jobs.
+
+
+![!Model](model-app-endpoint.png)
 
 
 
-What this means is that when someone uses our web app, the following will occur.
+## When someone uses our web app, the following will occur.
 
-To begin with, a user will type out a review and enter it into our web app.
+1. To begin with, a user will type out a review and enter it into our web app.
 
-Then, our web app will send that review to an endpoint that we created using API Gateway. This endpoint will be constructed so that anyone (including our web app) can use it.
+2. Then, our web app will send that review to an endpoint that we created using API Gateway. This endpoint will be constructed so that anyone (including our web app) can use it.
 
-API Gateway will forward the data on to the Lambda function
+*(This solves the authentication issue of AWS. some extra work needs to be done since AWS allows only authenticated objects to access the endpoint).*
 
-Once the Lambda function receives the user's review, it will process that review by tokenizing it and then creating a bag of words encoding of the result. After that, it will send the processed review off to our deployed model.
+3. API Gateway will forward the data on to the Lambda function
 
-Once the deployed model performs inference on the processed review, the resulting sentiment will be returned back to the Lambda function.
+4. Once the Lambda function receives the user's review, it will process that review by tokenizing it and then creating a bag of words encoding of the result. After that, it will send the processed review off to our deployed model.
 
-Our Lambda function will then return the sentiment result back to our web app using the endpoint that was constructed using API Gateway.
+*(This solves the problem of tokenization. Since AWS expects the input to be in bag-of-words form whereas users type the review as a string.)*
+
+5. Once the deployed model performs inference on the processed review, the resulting sentiment will be returned back to the Lambda function.
+
+6. Our Lambda function will then return the sentiment result back to our web app using the endpoint that was constructed using API Gateway.
+
+
+![Web-app](webapp.PNG)
+
+
+### Contents
+
+- General Outline
+- Step 1: Downloading the data
+- Step 2: Preparing and Processing the data
+- Step 3: Upload the data to S3
+- Step 4: Build and Train the PyTorch Model
+- Step 5: Testing the Model
+- Step 6: Deploying the model for testing
+- Step 7: Use the model for testing
+- Step 6 (again): Deploy the model for the web app
+- Step 7 (again): Use the model for the web app
+
+### Dataset
+
+[IMDB Dataset](https://ai.stanford.edu/~amaas/data/sentiment/)
+
+
 
 
 
