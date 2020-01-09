@@ -89,10 +89,18 @@
 
 
 
+# Results
+
+![result](result.png)
+
+## Or Look at this [Youtube Video](https://www.youtube.com/playlist?list=PL9vx_VYEb3N1AGQoFsrGlkKtFNiNhQCJb)
 
 
 
-## Future Tasks to make the project Stand Out
+.
+
+
+## Future Tasks to make the Project Stand Out
 
 ### 1 MAKE A BETTER WEB APP
    The web app in this project simply reports to the user whether the predicted sentiment was positive or negative. thinking of a better web app that uses the same model?
