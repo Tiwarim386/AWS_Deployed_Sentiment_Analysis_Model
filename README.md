@@ -7,6 +7,8 @@
  
 
 
+
+
 1. Used BeautifulSoup to remove any HTML formatting that may have appeared.
 
 2. Used NLTK to stem the words.
@@ -18,7 +20,10 @@
 5. Used AWS SageMaker for creating Notebook Instances, Training jobs, Endpoints, Models & Batch Transform jobs.
 
 
+
+
 ![!Model](model-app-endpoint.png)
+
 
 
 
@@ -28,20 +33,28 @@
 
 2. Then, our web app will send that review to an endpoint that we created using API Gateway. This endpoint will be constructed so that anyone (including our web app) can use it.
 
-*(This solves the authentication issue of AWS. some extra work needs to be done since AWS allows only authenticated objects to access the endpoint).*
+    *(This solves the authentication issue of AWS. some extra work needs to be done since AWS allows only authenticated objects to access the endpoint).*
 
 3. API Gateway will forward the data on to the Lambda function
 
 4. Once the Lambda function receives the user's review, it will process that review by tokenizing it and then creating a bag of words encoding of the result. After that, it will send the processed review off to our deployed model.
 
-*(This solves the problem of tokenization. Since AWS expects the input to be in bag-of-words form whereas users type the review as a string.)*
+    *(This solves the problem of tokenization. Since AWS expects the input to be in bag-of-words form whereas users type the review as a string.)*
 
 5. Once the deployed model performs inference on the processed review, the resulting sentiment will be returned back to the Lambda function.
 
 6. Our Lambda function will then return the sentiment result back to our web app using the endpoint that was constructed using API Gateway.
 
 
+
+
+
+
 ![Web-app](webapp.PNG)
+
+
+
+
 
 
 ### Contents
@@ -57,9 +70,14 @@
 - Step 6 (again): Deploy the model for the web app
 - Step 7 (again): Use the model for the web app
 
+
+
+
+
 ### Dataset
 
 [IMDB Dataset](https://ai.stanford.edu/~amaas/data/sentiment/)
+
 
 
 
